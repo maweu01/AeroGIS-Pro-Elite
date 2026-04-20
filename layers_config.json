@@ -1,0 +1,336 @@
+{
+  "version": "2.0",
+  "basemaps": [
+    {
+      "id": "osm",
+      "name": "OpenStreetMap",
+      "type": "tile",
+      "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "attribution": "© OpenStreetMap contributors",
+      "maxZoom": 19,
+      "icon": "🗺",
+      "default": true
+    },
+    {
+      "id": "esri_satellite",
+      "name": "Esri World Imagery (Satellite)",
+      "type": "tile",
+      "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      "attribution": "© Esri, Maxar, GeoEye, Earthstar Geographics",
+      "maxZoom": 19,
+      "icon": "🛰"
+    },
+    {
+      "id": "esri_hillshade",
+      "name": "Esri World Hillshade",
+      "type": "tile",
+      "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}",
+      "attribution": "© Esri",
+      "maxZoom": 16,
+      "icon": "⛰"
+    },
+    {
+      "id": "opentopomap",
+      "name": "OpenTopoMap (Topographic)",
+      "type": "tile",
+      "url": "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+      "attribution": "© OpenTopoMap, SRTM",
+      "maxZoom": 17,
+      "icon": "📐"
+    },
+    {
+      "id": "carto_dark",
+      "name": "CartoDB Dark",
+      "type": "tile",
+      "url": "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+      "attribution": "© CARTO, OpenStreetMap",
+      "maxZoom": 19,
+      "icon": "🌑"
+    },
+    {
+      "id": "carto_light",
+      "name": "CartoDB Positron (Light)",
+      "type": "tile",
+      "url": "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      "attribution": "© CARTO, OpenStreetMap",
+      "maxZoom": 19,
+      "icon": "☀"
+    },
+    {
+      "id": "esri_topo",
+      "name": "Esri World Topo",
+      "type": "tile",
+      "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+      "attribution": "© Esri",
+      "maxZoom": 18,
+      "icon": "🏔"
+    },
+    {
+      "id": "stamen_terrain",
+      "name": "Stadia Terrain",
+      "type": "tile",
+      "url": "https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.png",
+      "attribution": "© Stadia Maps, Stamen Design",
+      "maxZoom": 18,
+      "icon": "🌿"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "osm_roads",
+      "name": "Road Network (OSM)",
+      "source": "OpenStreetMap",
+      "type": "vector_tile",
+      "category": "Infrastructure",
+      "icon": "🛣",
+      "color": "#F0A500",
+      "visible": false,
+      "description": "Global road network from OpenStreetMap. Includes motorways, primary, secondary, and local roads."
+    },
+    {
+      "id": "admin_boundaries",
+      "name": "Administrative Boundaries",
+      "source": "Natural Earth / GADM",
+      "type": "geojson",
+      "category": "Administrative",
+      "icon": "🗂",
+      "color": "#9B59B6",
+      "visible": false,
+      "description": "Country, state, and county administrative boundaries. Source: Natural Earth & GADM v4."
+    },
+    {
+      "id": "airports",
+      "name": "Airports & Airstrips",
+      "source": "OpenAIP / OurAirports",
+      "type": "geojson",
+      "category": "Airspace",
+      "icon": "✈",
+      "color": "#E74C3C",
+      "visible": true,
+      "description": "Global airports, airstrips, and helipads. Source: OurAirports.com database."
+    },
+    {
+      "id": "controlled_airspace",
+      "name": "Controlled Airspace",
+      "source": "OpenAIP",
+      "type": "geojson",
+      "category": "Airspace",
+      "icon": "🚫",
+      "color": "#E74C3C",
+      "visible": false,
+      "description": "Class A-E controlled airspace polygons. Source: OpenAIP global airspace database."
+    },
+    {
+      "id": "dem_srtm",
+      "name": "SRTM Elevation (30m)",
+      "source": "NASA SRTM",
+      "type": "wms",
+      "url": "https://elevation.nationalmap.gov/arcgis/services/3DEPElevation/ImageServer/WMSServer",
+      "layers": "3DEPElevation:Hillshade Elevation Tinted",
+      "category": "Terrain",
+      "icon": "📊",
+      "color": "#8B4513",
+      "visible": false,
+      "description": "Shuttle Radar Topography Mission (SRTM) 30m Digital Elevation Model. Global coverage."
+    },
+    {
+      "id": "esa_worldcover",
+      "name": "ESA WorldCover Land Cover (10m)",
+      "source": "ESA Copernicus",
+      "type": "tile",
+      "url": "https://services.terrascope.be/wmts/v2?layer=WORLDCOVER_2021_MAP&style=default&tilematrixset=EPSG:3857&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix={z}&TileCol={x}&TileRow={y}",
+      "category": "Land Cover",
+      "icon": "🌍",
+      "color": "#27AE60",
+      "visible": false,
+      "description": "ESA WorldCover 2021 global land cover at 10m resolution. 11 land use classes."
+    },
+    {
+      "id": "copernicus_dem",
+      "name": "Copernicus DEM (GLO-30)",
+      "source": "ESA Copernicus",
+      "type": "wms",
+      "category": "Terrain",
+      "icon": "⛰",
+      "color": "#8B4513",
+      "visible": false,
+      "description": "Copernicus Global DEM at 30m resolution. Better accuracy than SRTM in tropical regions."
+    },
+    {
+      "id": "hydro_rivers",
+      "name": "River Network (HydroSHEDS)",
+      "source": "WWF HydroSHEDS",
+      "type": "tile",
+      "category": "Hydrology",
+      "icon": "🌊",
+      "color": "#3498DB",
+      "visible": false,
+      "description": "Global river and drainage network from WWF HydroSHEDS dataset. Stream order 1-8."
+    },
+    {
+      "id": "protected_areas",
+      "name": "Protected Areas (WDPA)",
+      "source": "UNEP-WCMC",
+      "type": "geojson",
+      "category": "Environment",
+      "icon": "🌿",
+      "color": "#27AE60",
+      "visible": false,
+      "description": "World Database of Protected Areas (WDPA). National parks, forest reserves, marine protected areas."
+    },
+    {
+      "id": "population_density",
+      "name": "Population Density (GPW)",
+      "source": "Columbia CIESIN / GPW v4",
+      "type": "wms",
+      "category": "Socioeconomic",
+      "icon": "👥",
+      "color": "#E74C3C",
+      "visible": false,
+      "description": "Gridded Population of the World v4. Population density per km² at 1km resolution."
+    },
+    {
+      "id": "urban_areas",
+      "name": "Urban Footprints (GUF)",
+      "source": "DLR GUF / Global Human Settlement",
+      "type": "wms",
+      "category": "Urban",
+      "icon": "🏙",
+      "color": "#E67E22",
+      "visible": false,
+      "description": "Global Urban Footprint from DLR. Built-up area delineation at 12m resolution."
+    },
+    {
+      "id": "military_zones",
+      "name": "Military Restricted Areas",
+      "source": "OpenAIP / National Sources",
+      "type": "geojson",
+      "category": "Airspace",
+      "icon": "⚠",
+      "color": "#FF6B00",
+      "visible": false,
+      "description": "Military operating areas and restricted zones. Check NOTAMs for current restrictions."
+    },
+    {
+      "id": "helipads",
+      "name": "Helipads & Heliports",
+      "source": "OurAirports / OpenStreetMap",
+      "type": "geojson",
+      "category": "Airspace",
+      "icon": "🚁",
+      "color": "#16A085",
+      "visible": false,
+      "description": "Helipad and heliport locations worldwide. Useful for helicopter survey operations."
+    },
+    {
+      "id": "powerlines",
+      "name": "Power Transmission Lines",
+      "source": "OpenStreetMap",
+      "type": "vector",
+      "category": "Infrastructure",
+      "icon": "⚡",
+      "color": "#F39C12",
+      "visible": false,
+      "description": "High-voltage electricity transmission lines. Critical obstacle data for low-altitude UAV operations."
+    },
+    {
+      "id": "sentinel2_recent",
+      "name": "Sentinel-2 Recent Imagery",
+      "source": "ESA Copernicus / Sentinel Hub",
+      "type": "wms",
+      "url": "https://services.sentinel-hub.com/ogc/wms/",
+      "category": "Satellite",
+      "icon": "🛰",
+      "color": "#2ECC71",
+      "visible": false,
+      "description": "Recent Sentinel-2 10m RGB imagery. Used for change detection baseline comparisons."
+    },
+    {
+      "id": "srtm_slope",
+      "name": "Terrain Slope (SRTM derived)",
+      "source": "NASA SRTM / USGS",
+      "type": "wms",
+      "category": "Terrain",
+      "icon": "📐",
+      "color": "#D35400",
+      "visible": false,
+      "description": "Slope gradient derived from SRTM 30m DEM. Degrees from horizontal. Essential for terrain analysis."
+    }
+  ],
+  "nfz": {
+    "east_africa": [
+      {
+        "id": "jkia",
+        "name": "JKIA — Jomo Kenyatta International Airport",
+        "lat": -1.3192,
+        "lng": 36.9275,
+        "radius_km": 8,
+        "type": "Class C Controlled Airspace",
+        "icao": "HKJK",
+        "authority": "KCAA",
+        "max_uav_alt_m": 0,
+        "notes": "Full CTR. UAV operations prohibited within 8 km without ATC clearance."
+      },
+      {
+        "id": "wilson",
+        "name": "Wilson Airport",
+        "lat": -1.3214,
+        "lng": 36.8147,
+        "radius_km": 5,
+        "type": "Class D Airspace",
+        "icao": "HKNW",
+        "authority": "KCAA",
+        "max_uav_alt_m": 0,
+        "notes": "General aviation hub. High traffic from survey and charter operations."
+      },
+      {
+        "id": "moi_mombasa",
+        "name": "Moi International Airport, Mombasa",
+        "lat": -4.0348,
+        "lng": 39.5944,
+        "radius_km": 8,
+        "type": "Class C Controlled Airspace",
+        "icao": "HKMO",
+        "authority": "KCAA",
+        "max_uav_alt_m": 0,
+        "notes": "CTR. Coastal operations require KCAA coordination."
+      },
+      {
+        "id": "kisumu",
+        "name": "Kisumu International Airport",
+        "lat": -0.0862,
+        "lng": 34.7289,
+        "radius_km": 5,
+        "type": "Class D Airspace",
+        "icao": "HKKI",
+        "authority": "KCAA",
+        "max_uav_alt_m": 0,
+        "notes": "Lake Victoria basin operations require KCAA approval."
+      },
+      {
+        "id": "nairobi_np",
+        "name": "Nairobi National Park",
+        "lat": -1.3833,
+        "lng": 36.8667,
+        "radius_km": 4,
+        "type": "Protected Wildlife Area",
+        "icao": null,
+        "authority": "KWS",
+        "max_uav_alt_m": 0,
+        "notes": "Wildlife and conservation zone. UAV prohibited without KWS permit."
+      },
+      {
+        "id": "state_house",
+        "name": "State House Nairobi",
+        "lat": -1.2770,
+        "lng": 36.8163,
+        "radius_km": 3,
+        "type": "Critical Infrastructure (Prohibited)",
+        "icao": null,
+        "authority": "Kenya Police / KCAA",
+        "max_uav_alt_m": 0,
+        "notes": "Absolute prohibited zone. Violation constitutes a criminal offence."
+      }
+    ]
+  }
+}
